@@ -1,0 +1,48 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.3.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.africanlandmass'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+bootJar {
+	baseName = 'land-evaluation'
+	version = '0.1.0'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile group: 'com.mastercard.api', name: 'mpqr-mes', version: '1.0.0'
+	compile('org.springframework.boot:spring-boot-starter-actuator')
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	runtime('org.springframework.boot:spring-boot-devtools')
+	compile ('mysql:mysql-connector-java')
+	//compile('com.h2database:h2')
+	//runtime('org.postgresql:postgresql')
+	compileOnly('org.springframework.boot:spring-boot-configuration-processor')
+	compile("org.springframework.boot:spring-boot-starter-websocket")
+	compileOnly('org.projectlombok:lombok')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	compile 'com.nimbusds:nimbus-jose-jwt:4.34.2'
+	compile group: 'commons-io', name: 'commons-io', version: '2.6'
+	compile 'com.google.guava:guava:26.0-jre'
+
+}

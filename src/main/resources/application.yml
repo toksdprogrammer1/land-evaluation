@@ -1,0 +1,48 @@
+server:
+  #port: 7000
+  port: 8080
+
+spring:
+#  jpa:
+#    database: h2
+#    generate-ddl: true
+#    hibernate.ddl-auto: update
+#    hibernate:
+#      use-new-id-generator-mappings: true
+#  datasource:
+#    url: jdbc:h2:mem:test
+#    driverClassName: org.h2.Driver
+#    username: root
+#    password: 123456
+
+  jpa:
+    database: mysql
+    generate-ddl: true
+    hibernate.ddl-auto: update
+    hibernate:
+      use-new-id-generator-mappings: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/landevaluation
+    driverClassName: com.mysql.jdbc.Driver
+    username: root
+    password: WuHaifeng86
+
+logging:
+  level:
+    org:
+      apache:
+        http: DEBUG
+
+
+#---
+#spring:
+#  profiles: mes-sandbox
+#
+#mes:
+#  openapi: true
+#  sandbox: true
+#  consumer-key: _H7rRM_w1ux6h7IgdWoHmDD2rUuhR7b5el8sZtQ_d58087ae!fada4e9133e94640b274c87f74e61d490000000000000000
+#  key:
+#    alias: keyalias
+#    password: keystorepassword
+#    path: sandbox/tns-reference-partner-service-sandbox.p12
